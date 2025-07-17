@@ -11,7 +11,7 @@
 #include <assert.h>
 
 // The width of the input 2d square matrix.
-#define WIDTH 128
+#define WIDTH 256
 // Whether to turn on debugging print.
 #define DEBUG false
 // The size of block in 1 dim. Here the block is square shape.
@@ -192,11 +192,13 @@ int main() {
 
     if (DEBUG) {
         printf("\nExpectation is:\n");
-        for (int i = 0; i < WIDTH; i++) {
-            for (int j = 0; j < WIDTH; j++) {
+    }
+    for (int i = 0; i < WIDTH; i++) {
+        for (int j = 0; j < WIDTH; j++) {
+            if (DEBUG) {
                 printf("%f\n", expected[i][j]);
-                assert(expected[i][j] == c_h[i][j]);
             }
+            assert(expected[i][j] == c_h[i][j]);
         }
     }
     printf("CPU computation for verification finished...\n");
